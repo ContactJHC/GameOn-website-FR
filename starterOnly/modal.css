@@ -31,14 +31,17 @@ img {
 }
 
 .topnav {
-  overflow: hidden;
+  display: flex;
   margin: 3.5%;
+  justify-content: space-between;
 }
 .header-logo {
     float: left;
 }
 .main-navbar {
     float: right;
+    height: auto;
+    display: flex;
 }
 .topnav a {
   float: left;
@@ -48,11 +51,11 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1rempx;
   font-family: Roboto, sans-serif;
 }
 
-.topnav a:hover {
+.topnav a:hover , .topnav a.icon:hover{
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
@@ -62,10 +65,52 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  display: none;
 }
 
 .topnav .icon {
   display: none;
+}
+
+.confirmationEnvoi {
+  height: auto;
+  width: 200px;
+  margin: auto;
+  margin-bottom: 15px;
+  color: #e54858;
+  border: 2px solid black;
+  border-radius: 50px;
+  text-align: center;
+  z-index: 5;
+  display: none;
+}
+
+.afficherConfirmationEnvoi {
+  display : block;
+}
+
+.aidesTextuelles {
+  font-size: 1rem;
+  color: crimson;
+}
+
+.afficherAide {
+  display: inline;
+}
+
+.cacherAide {
+  display : none;
+}
+
+.aidesTextuellesConditions {
+  text-justify: none;
+}
+
+.modal-body--apresEnvoi {
+  display: none;
+  height: 80%;
+  padding: 15px 8%;
+  margin: 15px auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -73,11 +118,22 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+    color: red;
+  }
+
+  .header-logo img { 
+    height: 30px;
+    width: auto;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+@media screen and (max-width: 850px) {
+
+  
+  .topnav.responsive {
+    position: relative;
+  }
+ 
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -88,17 +144,47 @@ img {
     display: block;
     text-align: left;
   }
+
+  .topnav a.active {
+    display: none;
+  }
+
 }
 
 
 
  @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
+  /* .topnav a {display: none;} */
+  .topnav.responsive {
+    position: relative;
   }
+  
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .topnav a.active {
+    display: none;
+  }
+
+  .main-navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .hero-section {
+    min-height: 0;
+  }
+
+  
 } 
 
 main {
@@ -322,7 +408,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup, .btn-submit-apresEnvoi {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -333,6 +419,7 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -436,7 +523,7 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -478,33 +565,39 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
+
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 0;
   }
   .hero-content {
     background: #fff;
     color: #000;
     padding: 20px;
+    padding-bottom: 10px;
+    min-width: 350px;
   }
   .hero-content::after {
     content: unset;
+    width: unset;
   }
   .hero-content .btn-signup {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 10px;
   }
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 5px;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -526,4 +619,3 @@ footer {
     opacity: 1;
   }
 }
-

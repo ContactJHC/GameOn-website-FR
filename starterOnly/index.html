@@ -14,22 +14,21 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
-    </div>
-    <div class="main-navbar">
+        <img alt="logo" src="Logo.png" height="50" width="300"/>
+      </div>
+      <div class="main-navbar">
       
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    </div>
-  </div>
-    <main>
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>    
+    <main>      
       <div class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
@@ -55,15 +54,22 @@
       <div class="bground">
         <div class="content">
           <span class="close"></span>
+          <div class="modal-body--apresEnvoi">
+            <div class="texteEnvoiFormulaire">Merci pour votre inscription</div>
+            <input
+                class="btn-submit-apresEnvoi button"
+                type="submit"
+                value="Fermer"
+              />
+          </div>
           <div class="modal-body">
             <form
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return validate()"
             >
-              <div
-                class="formData">
+              <div class="formData">
                 <label>Prénom</label><br>
                 <input
                   class="text-control"
@@ -72,6 +78,7 @@
                   name="first"
                   minlength="2"
                 /><br>
+                <span class="aidesTextuellesPrenom cacherAide aidesTextuelles">Au moins 2 caractères et seulement des lettres.</span>                
               </div>
               <div
                 class="formData">
@@ -82,6 +89,7 @@
                   id="last"
                   name="last"
                 /><br>
+                <span class="aidesTextuellesNom cacherAide aidesTextuelles">Au moins 2 caractères et seulement des lettres.</span>
               </div>
               <div
                 class="formData">
@@ -92,6 +100,8 @@
                   id="email"
                   name="email"
                 /><br>
+                <span class="aidesTextuellesEmail cacherAide aidesTextuelles">Saisir une adresse email valide.</span>
+                
               </div>
               <div
                 class="formData">
@@ -101,18 +111,19 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br>
+                /><br>                
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <span class="aidesTextuellesNombre cacherAide aidesTextuelles">Saisir une valeur numérique à un ou deux chiffres.</span>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
                 class="formData">
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input locationn"
                   type="radio"
                   id="location1"
                   name="location"
@@ -123,7 +134,7 @@
                   New York</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input locationn"
                   type="radio"
                   id="location2"
                   name="location"
@@ -134,7 +145,7 @@
                   San Francisco</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input locationn"
                   type="radio"
                   id="location3"
                   name="location"
@@ -145,7 +156,7 @@
                   Seattle</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input locationn"
                   type="radio"
                   id="location4"
                   name="location"
@@ -156,7 +167,7 @@
                   Chicago</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input locationn"
                   type="radio"
                   id="location5"
                   name="location"
@@ -167,7 +178,7 @@
                   Boston</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input locationn"
                   type="radio"
                   id="location6"
                   name="location"
@@ -178,7 +189,9 @@
                   Portland</label
                 >
               </div>
-
+              <span class="aidesTextuellesNombreVille cacherAide aidesTextuelles">Vous devez sélectionner une option.</span>
+              
+            
               <div
                 class="formData">
                 <input
@@ -187,22 +200,22 @@
                   id="checkbox1"
                   checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <span class="aidesTextuellesConditions cacherAide aidesTextuelles">Conditions à accepter.</span>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
