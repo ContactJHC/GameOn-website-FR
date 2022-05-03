@@ -51,7 +51,7 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 1rempx;
+  font-size: 1rem;
   font-family: Roboto, sans-serif;
 }
 
@@ -108,10 +108,13 @@ img {
 
 .modal-body--apresEnvoi {
   display: none;
-  height: 80%;
   padding: 15px 8%;
   margin: 15px auto;
+  min-height: 300px;
+  text-align: center;
+  padding: 200px 0;
 }
+
 
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
@@ -130,14 +133,15 @@ img {
 @media screen and (max-width: 850px) {
 
   
-  .topnav.responsive {
+  .topnav {
     position: relative;
+    flex-direction: column;
   }
  
-  .topnav.responsive .icon {
+  .topnav .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: -10px;
   }
   .topnav.responsive a {
     float: none;
@@ -155,15 +159,7 @@ img {
 
  @media screen and (max-width: 540px) {
   /* .topnav a {display: none;} */
-  .topnav.responsive {
-    position: relative;
-  }
   
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
   .topnav.responsive a {
     float: none;
     display: block;
@@ -418,6 +414,10 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+
+.btn-submit-apresEnvoi {
+  margin-top: 50px;
 }
 
 /* custom select styles */

@@ -131,6 +131,20 @@ function verifEmail() {
 
 email.addEventListener("keyup", verifEmail);
 
+// // // Vérification qu'une date est saisie
+
+function verifDate() {
+  if (document.querySelector('#birthdate').value) {
+    document.querySelector('.aidesTextuellesDate').setAttribute("class", "aidesTextuellesDate cacherAide aidesTextuelles");
+    return true;
+  } else {
+    document.querySelector('.aidesTextuellesDate').setAttribute("class", "aidesTextuellesDate afficherAide aidesTextuelles");
+    return false;
+
+  };
+}
+
+// document.querySelector('#birthdate').addEventListener('click', verifDate);
 
 // // // Vérification de la validité du nombre de tournois rentré
 
@@ -169,7 +183,7 @@ let listelocation = document.querySelectorAll(".locationn")
 function verifierRadioVilleCheck () {
   let indicateur = 0;
   listelocation.forEach(loc => {
-    console.log(loc.checked);
+    // console.log(loc.checked);
     if (loc.checked) {
       indicateur += 1;
       // console.log("l'indicateur vaut "+indicateur+" au rang "+i+" et tableau[indicateur].checked vaut "+tableau[i].checked);
@@ -231,6 +245,7 @@ function validate () {
   resultat = verifNom() && resultat;
   resultat = verifEmail() && resultat ;
   resultat = verifNombre() && resultat;
+  resultat = verifDate() && resultat;
   // console.log(verifNombreVille());  
   // console.log(verifCG());  
   // console.log(verifPrenom());  
