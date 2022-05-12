@@ -24,6 +24,9 @@ function launchModal() {
 
 function closeModal() {
   modalbg.style.display = "none";
+  document.querySelector('.bground').style.display='none';
+  document.querySelector('.content').style.display='none';
+  document.querySelector("#leFormulaire").reset();
 }
 
 // // // Fermeture de la modale au clic sur la croix supérieure droite par ajout d'une écoute de clic
