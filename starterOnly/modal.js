@@ -19,7 +19,11 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
+  modale.style.display = "block";
   modalbg.style.display = "block";
+  document.querySelector('.bground').style.display='block';
+  document.querySelector('.content').style.display='block';
+  modaleApresEnvoi.style.display='none';
 }
 
 function closeModal() {
@@ -35,12 +39,14 @@ onFerme.forEach((btn) => btn.addEventListener("click", closeModal));
 
 // // // Fermeture de la modale et du fond d'écran bleuté après envoi confirmé du formulaire
 
-document.querySelector(".btn-submit-apresEnvoi").addEventListener("click", e => {
-  document.querySelector(".content").style.display="none";
-  document.querySelector(".bground").style.display="none";
+document.querySelector(".btn-submit-apresEnvoi")
+.addEventListener("click",
+closeModal) 
+// e => {
+//   document.querySelector(".content").style.display="none";
+//   document.querySelector(".bground").style.display="none";
+// })
 
-  
-})
 
 // // // Ajouter confirmation quand envoi réussi, définition des constants
 // la fonction est définie à la fin de ce .js 
@@ -53,7 +59,7 @@ const modaleApresEnvoi = document.querySelector('.modal-body--apresEnvoi')
 // // // Vérification de la validité du prénom renseigné 
 
 const prenom = document.querySelector('#first');
-const testPrenom = /^[a-zA-Z]{2,30}$/;
+const testPrenom = /^[a-z ,.'-]{2,30}$/i;
 const spanPrenom = document.querySelector(".aidesTextuellesPrenom");
 
 prenom.addEventListener("keyup", e => {
@@ -80,7 +86,7 @@ prenom.addEventListener("keyup", verifPrenom);
 // // // Vérification de la validité du nom renseigné
 
 const nom = document.querySelector('#last');
-const testnom = /^[a-zA-Z]{2,30}$/;
+const testnom = /^[a-z ,.'-]{2,30}$/i;
 const spanNom = document.querySelector(".aidesTextuellesNom");
 
 nom.addEventListener("keyup", e => {
